@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zyntex — Mine ZYM. Build Wealth.</title>
+  <meta name="description" content="Zyntex is the next-generation mobile crypto mining platform. Mine ZYM tokens, earn daily rewards, and grow your wealth from your phone." />
+  <meta name="keywords" content="Zyntex, ZYM, crypto mining, mobile mining, cryptocurrency, earn rewards, ZYM token" />
+  <meta property="og:title" content="Zyntex — Mine ZYM. Build Wealth." />
+  <meta property="og:description" content="The next-generation mobile crypto mining platform. Mine ZYM tokens every day." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Variables ──────────────────────────────────────────────────────── */
+    :root {
+      --bg:         #0B0B0D;
+      --bg2:        #141417;
+      --bg3:        #1A1A1E;
+      --gold:       #D4AF37;
+      --gold-light: #F2D27D;
+      --gold-dim:   rgba(212,175,55,0.12);
+      --text:       #FFFFFF;
+      --muted:      #B3B3B3;
+      --dim:        #7A7A7A;
+      --border:     #1E1E22;
+      --radius:     14px;
+    }
+
+    /* ─── Reset ──────────────────────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Utility ────────────────────────────────────────────────────────── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .gold { color: var(--gold); }
+    .gold-grad { background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-label {
+      display: inline-block;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.7; }
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+
+    /* ─── Buttons ────────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700; font-size: 15px;
+      padding: 14px 28px; border-radius: 12px;
+      border: none; cursor: pointer;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0B0B0D;
+      box-shadow: 0 8px 24px rgba(212,175,55,0.35);
+    }
+    .btn-gold:hover { box-shadow: 0 12px 32px rgba(212,175,55,0.5); }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid rgba(212,175,55,0.5);
+    }
+    .btn-outline:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+    /* ─── Navbar ─────────────────────────────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0;
+      background: rgba(11,11,13,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .navbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .navbar-logo {
+      font-size: 22px; font-weight: 900; letter-spacing: 3px;
+      color: var(--gold);
+    }
+    .navbar-logo span { color: var(--gold-light); }
+    .navbar-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .navbar-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      transition: color .2s;
+    }
+    .navbar-links a:hover { color: var(--text); }
+    .navbar-cta { display: flex; align-items: center; gap: 12px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--muted); border-radius: 2px; transition: all .3s; }
+    .mobile-menu {
+      display: none;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; padding: 12px 0;
+      font-size: 15px; font-weight: 500; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-cta { margin-top: 16px; }
+
+    /* ─── Hero ───────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(ellipse at center, rgba(212,175,55,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 7px 14px; border-radius: 100px;
+      font-size: 13px; font-weight: 600; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+    .hero-title {
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+    .hero-sub { font-size: 18px; color: var(--muted); line-height: 1.75; margin-bottom: 40px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-store-btn {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 12px 20px; border-radius: 12px;
+      font-size: 13px; color: var(--muted);
+      transition: border-color .2s, background .2s;
+      cursor: pointer;
+    }
+    .hero-store-btn:hover { border-color: var(--gold); background: var(--gold-dim); color: var(--text); }
+    .hero-store-btn .store-icon { font-size: 26px; }
+    .hero-store-btn strong { display: block; font-size: 15px; font-weight: 700; color: var(--text); }
+    .hero-trust { display: flex; align-items: center; gap: 16px; }
+    .hero-trust-avatars { display: flex; }
+    .hero-trust-avatars span {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 2px solid var(--bg);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: #0B0B0D;
+      margin-left: -10px;
+    }
+    .hero-trust-avatars span:first-child { margin-left: 0; }
+    .hero-trust p { font-size: 13px; color: var(--muted); }
+    .hero-trust strong { color: var(--gold); }
+
+    /* App mockup */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+    .mockup-wrap {
+      position: relative; width: 280px;
+    }
+    .mockup-glow {
+      position: absolute; inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(212,175,55,0.22) 0%, transparent 65%);
+      border-radius: 50%;
+      animation: float 4s ease-in-out infinite;
+    }
+    .mockup-phone {
+      position: relative; z-index: 1;
+      width: 280px; height: 580px;
+      background: linear-gradient(145deg, #1E1E24, #141418);
+      border-radius: 44px;
+      border: 2px solid rgba(212,175,55,0.25);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04) inset;
+      padding: 24px 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .mockup-notch {
+      width: 80px; height: 6px; background: var(--bg);
+      border-radius: 100px; margin: 0 auto 12px;
+    }
+    .mockup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .mockup-header-left p { font-size: 11px; color: var(--dim); }
+    .mockup-header-left strong { font-size: 18px; font-weight: 800; color: var(--gold); }
+    .mockup-badge {
+      background: var(--gold-dim); border: 1px solid rgba(212,175,55,0.3);
+      padding: 4px 10px; border-radius: 100px;
+      font-size: 10px; color: var(--gold); font-weight: 600;
+    }
+    .mockup-coin {
+      background: linear-gradient(145deg, #1E1E24, #141418);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .coin-circle {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; font-weight: 900; color: #0B0B0D;
+      margin: 0 auto 12px;
+      box-shadow: 0 0 30px rgba(212,175,55,0.4);
+      animation: spin-glow 3s ease-in-out infinite alternate;
+    }
+    .coin-value { font-size: 22px; font-weight: 800; color: var(--text); }
+    .coin-label { font-size: 11px; color: var(--dim); margin-top: 2px; }
+    .mockup-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mockup-stat {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 12px;
+    }
+    .mockup-stat p { font-size: 10px; color: var(--dim); margin-bottom: 2px; }
+    .mockup-stat strong { font-size: 14px; font-weight: 700; color: var(--gold); }
+    .mockup-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 12px; padding: 14px;
+      text-align: center; font-weight: 800;
+      font-size: 14px; color: #0B0B0D;
+      margin-top: auto; cursor: pointer;
+    }
+    .floating-badge {
+      position: absolute; background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      font-size: 12px; white-space: nowrap;
+      animation: float 4s ease-in-out infinite;
+    }
+    .floating-badge.left { left: -60px; top: 30%; animation-delay: -1s; }
+    .floating-badge.right { right: -50px; top: 60%; animation-delay: -2s; }
+    .floating-badge .fb-icon { font-size: 18px; margin-right: 6px; }
+    .floating-badge strong { color: var(--gold); }
+
+    /* ─── Stats bar ──────────────────────────────────────────────────────── */
+    .stats-bar {
+      padding: 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      divide-x: 1px solid var(--border);
+    }
+    .stat-item {
+      text-align: center; padding: 32px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 13px; color: var(--dim); margin-top: 6px; font-weight: 500; }
+
+    /* ─── Features ───────────────────────────────────────────────────────── */
+    .features { padding: 100px 0; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 56px;
+    }
+    .feature-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute;
+      inset: 0; border-radius: 20px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 60%);
+      opacity: 0; transition: opacity .25s;
+    }
+    .feature-card:hover { border-color: rgba(212,175,55,0.4); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,175,55,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .feature-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── How it works ───────────────────────────────────────────────────── */
+    .how { padding: 100px 0; background: var(--bg2); }
+    .how-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 40px; margin-top: 56px; position: relative;
+    }
+    .how-steps::before {
+      content: '';
+      position: absolute; top: 36px; left: calc(16% + 36px); right: calc(16% + 36px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+      opacity: 0.3;
+    }
+    .step {
+      text-align: center; position: relative;
+    }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0B0B0D; font-size: 24px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 0 0 8px rgba(212,175,55,0.1), 0 0 0 16px rgba(212,175,55,0.05);
+    }
+    .step-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .step-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── ZYM Token ──────────────────────────────────────────────────────── */
+    .token { padding: 100px 0; }
+    .token-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .token-info-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 40px;
+    }
+    .token-info-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .token-info-item p { font-size: 12px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .token-info-item strong { font-size: 20px; font-weight: 800; color: var(--gold); }
+    .token-visual {
+      display: flex; justify-content: center; align-items: center; position: relative;
+    }
+    .token-ring {
+      position: relative; width: 340px; height: 340px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .token-ring-outer {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 2px dashed rgba(212,175,55,0.25);
+      animation: spin 20s linear infinite;
+    }
+    .token-ring-inner {
+      position: absolute; inset: 40px; border-radius: 50%;
+      border: 1px dashed rgba(212,175,55,0.15);
+      animation: spin 12s linear infinite reverse;
+    }
+    .token-coin-big {
+      width: 160px; height: 160px; border-radius: 50%;
+      background: linear-gradient(145deg, #D4AF37, #F2D27D, #B8941F);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 60px rgba(212,175,55,0.5), 0 0 120px rgba(212,175,55,0.2);
+      font-size: 64px; font-weight: 900; color: #0B0B0D;
+    }
+    .token-orbit-dot {
+      position: absolute; width: 12px; height: 12px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 8px var(--gold);
+    }
+    .token-orbit-dot:nth-child(2) { top: 12px; left: 50%; transform: translateX(-50%); animation: pulse 2s infinite; }
+    .token-orbit-dot:nth-child(3) { bottom: 12px; right: 20%; animation: pulse 2s infinite .6s; }
+    .token-orbit-dot:nth-child(4) { top: 40%; left: 8px; animation: pulse 2s infinite 1.2s; }
+
+    /* ─── Download ───────────────────────────────────────────────────────── */
+    .download {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #141417 0%, #0B0B0D 50%, #111112 100%);
+      position: relative; overflow: hidden;
+    }
+    .download::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.08) 0%, transparent 65%);
+    }
+    .download-inner { position: relative; z-index: 1; }
+    .download-box {
+      background: var(--bg2);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 28px; padding: 64px 48px;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(212,175,55,0.08);
+    }
+    .download-stores {
+      display: flex; justify-content: center; gap: 16px; margin-top: 36px; flex-wrap: wrap;
+    }
+    .store-card {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--bg3); border: 1.5px solid var(--border);
+      padding: 14px 24px; border-radius: 14px;
+      min-width: 180px;
+      transition: border-color .2s, background .2s, transform .2s;
+      cursor: pointer;
+    }
+    .store-card:hover { border-color: var(--gold); background: var(--gold-dim); transform: translateY(-2px); }
+    .store-card-icon { font-size: 32px; }
+    .store-card-text p { font-size: 11px; color: var(--dim); }
+    .store-card-text strong { font-size: 16px; font-weight: 700; color: var(--text); }
+    .download-note { font-size: 13px; color: var(--dim); margin-top: 24px; }
+
+    /* ─── Testimonials ───────────────────────────────────────────────────── */
+    .testimonials { padding: 100px 0; background: var(--bg2); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 56px;
+    }
+    .testimonial-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+      transition: border-color .25s;
+    }
+    .testimonial-card:hover { border-color: rgba(212,175,55,0.3); }
+    .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+    .testimonial-text { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #0B0B0D; font-size: 15px;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; font-size: 14px; }
+    .author-country { font-size: 12px; color: var(--dim); }
+
+    /* ─── FAQ ────────────────────────────────────────────────────────────── */
+    .faq { padding: 100px 0; }
+    .faq-list { max-width: 760px; margin: 56px auto 0; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius); margin-bottom: 12px;
+      background: var(--bg2);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px; cursor: pointer;
+      font-weight: 600; font-size: 16px;
+      transition: color .2s;
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-q .icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--gold-dim);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--gold);
+      transition: transform .3s; flex-shrink: 0;
+    }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+      font-size: 15px; color: var(--muted); line-height: 1.7;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+    /* ─── Footer ─────────────────────────────────────────────────────────── */
+    .footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand-logo { font-size: 24px; font-weight: 900; letter-spacing: 3px; color: var(--gold); margin-bottom: 12px; }
+    .footer-brand-logo span { color: var(--gold-light); }
+    .footer-desc { font-size: 14px; color: var(--dim); line-height: 1.7; margin-bottom: 20px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--bg3); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--muted);
+      transition: border-color .2s, color .2s, background .2s;
+      cursor: pointer;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+    .footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 14px; color: var(--muted); transition: color .2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--dim);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: var(--dim); transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--muted); }
+
+    /* ─── Animations ─────────────────────────────────────────────────────── */
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(.85)} }
+    @keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+    @keyframes spin-glow { 0%{box-shadow:0 0 20px rgba(212,175,55,0.3)} 100%{box-shadow:0 0 40px rgba(212,175,55,0.7)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    .animate-fadeup { animation: fadeUp .7s ease forwards; }
+    .delay-1 { animation-delay: .1s; opacity: 0; }
+    .delay-2 { animation-delay: .2s; opacity: 0; }
+    .delay-3 { animation-delay: .3s; opacity: 0; }
+    .delay-4 { animation-delay: .4s; opacity: 0; }
+    .delay-5 { animation-delay: .5s; opacity: 0; }
+
+    /* ─── Responsive ─────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .token-inner { gap: 48px; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .navbar-links, .navbar-cta .btn-outline { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { margin: 0 auto 40px; }
+      .hero-actions { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-visual { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .how-steps::before { display: none; }
+      .token-inner { grid-template-columns: 1fr; }
+      .token-visual { display: none; }
+      .token-info-grid { grid-template-columns: repeat(2, 1fr); }
+      .download-box { padding: 40px 24px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 36px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-store-btn { width: 100%; max-width: 260px; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-logo">ZYN<span>TEX</span></a>
+      <ul class="navbar-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#token">ZYM Token</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="navbar-cta">
+        <a href="#download" class="btn btn-outline" style="padding:10px 20px;font-size:14px;">Download App</a>
+        <a href="#download" class="btn btn-gold" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+      <div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#how" onclick="toggleMenu()">How It Works</a>
+    <a href="#token" onclick="toggleMenu()">ZYM Token</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <div class="mobile-menu-cta">
+      <a href="#download" class="btn btn-gold" style="width:100%;justify-content:center;" onclick="toggleMenu()">Download App</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════ HERO ════ -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Left: Copy -->
+      <div>
+        <div class="hero-badge animate-fadeup">
+          <span class="hero-badge-dot"></span>
+          Now Live — Mining is Open
+        </div>
+        <h1 class="hero-title animate-fadeup delay-1">
+          Mine <span class="gold-grad">ZYM.</span><br>Build Wealth.
+        </h1>
+        <p class="hero-sub animate-fadeup delay-2">
+          Zyntex is the next-generation mobile crypto mining platform. Earn ZYM tokens every day, grow your network, and build real wealth — all from your phone.
+        </p>
+        <div class="hero-actions animate-fadeup delay-3">
+          <a href="#download" class="hero-store-btn">
+            <span class="store-icon">🍎</span>
+            <div>
+              <p>Download on the</p>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="#download" class="hero-store-btn">
+            <span class="store-icon">▶</span>
+            <div>
+              <p>Get it on</p>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+        <div class="hero-trust animate-fadeup delay-4">
+          <div class="hero-trust-avatars">
+            <span>A</span><span>R</span><span>M</span><span>K</span>
+          </div>
+          <p><strong>Join the first wave</strong> of Zyntex miners</p>
+        </div>
+      </div>
+      <!-- Right: Phone Mockup -->
+      <div class="hero-visual">
+        <div class="mockup-wrap">
+          <div class="mockup-glow"></div>
+          <div class="mockup-phone">
+            <div class="mockup-notch"></div>
+            <div class="mockup-header">
+              <div class="mockup-header-left">
+                <p>Your Balance</p>
+                <strong>1,842.50 ZYM</strong>
+              </div>
+              <div class="mockup-badge">⛏ Mining</div>
+            </div>
+            <div class="mockup-coin">
+              <div class="coin-circle">Z</div>
+              <div class="coin-value">+0.42 ZYM</div>
+              <div class="coin-label">Earned today</div>
+            </div>
+            <div class="mockup-stats">
+              <div class="mockup-stat">
+                <p>Mining Rate</p>
+                <strong>0.42/hr</strong>
+              </div>
+              <div class="mockup-stat">
+                <p>Team Bonus</p>
+                <strong>+25%</strong>
+              </div>
+              <div class="mockup-stat">
+                <p>Streak</p>
+                <strong>7 days</strong>
+              </div>
+              <div class="mockup-stat">
+                <p>Referrals</p>
+                <strong>12</strong>
+              </div>
+            </div>
+            <div class="mockup-btn">⛏ Mining Active</div>
+          </div>
+          <div class="floating-badge left">
+            <span class="fb-icon">🎁</span> Daily Reward<br><strong>+5 ZYM</strong>
+          </div>
+          <div class="floating-badge right">
+            <span class="fb-icon">👥</span> Referral<br><strong>+2.1 ZYM</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ STATS BAR ══ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number" style="color:var(--gold)">$0</div>
+        <div class="stat-label">Cost to Start</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" style="color:var(--gold)">24/7</div>
+        <div class="stat-label">Auto Mining</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" style="color:var(--gold)">100%</div>
+        <div class="stat-label">Free to Use</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ FEATURES ════ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Why Zyntex</span>
+      <h2 class="section-title">Everything you need to <span class="gold-grad">mine smarter</span></h2>
+      <p class="section-sub">Designed for simplicity, built for serious miners. Zyntex combines powerful earning tools with an intuitive mobile experience.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⛏</div>
+        <h3 class="feature-title">Mobile Mining</h3>
+        <p class="feature-desc">Mine ZYM tokens directly from your smartphone with zero energy consumption. Tap once to start — your phone does the rest, 24/7.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎁</div>
+        <h3 class="feature-title">Daily Rewards</h3>
+        <p class="feature-desc">Earn bonus ZYM every day just for logging in. Complete simple daily tasks and watch your streak multiplier grow your earnings.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3 class="feature-title">Referral System</h3>
+        <p class="feature-desc">Invite friends and earn a percentage of their mining rewards forever. Build your team, boost your rate, and earn passive income.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3 class="feature-title">Secure Wallet</h3>
+        <p class="feature-desc">Your ZYM balance is secured in a non-custodial wallet backed by Firebase. Full KYC verification protects every account.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Real-Time Stats</h3>
+        <p class="feature-desc">Track your mining rate, team performance, transaction history, and earnings — all live, all in one dashboard.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💸</div>
+        <h3 class="feature-title">Easy Withdrawals</h3>
+        <p class="feature-desc">Withdraw your ZYM to your external wallet at any time. Fast processing, transparent fees, and full transaction history.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ HOW IT WORKS ══ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Get Started</span>
+      <h2 class="section-title">Start mining in <span class="gold-grad">3 simple steps</span></h2>
+      <p class="section-sub">No expensive hardware. No technical knowledge. Just download, register, and start earning ZYM today.</p>
+    </div>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Create Account</h3>
+        <p class="step-desc">Download the Zyntex app and register with your email. Verify your identity with our fast KYC process to unlock full features.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Activate Mining</h3>
+        <p class="step-desc">Tap the mining button once every 24 hours to activate your session. That's it — Zyntex handles all the computation in the cloud.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Earn &amp; Grow</h3>
+        <p class="step-desc">Watch your ZYM balance grow daily. Complete tasks, refer friends, and boost your mining rate to maximize your earnings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ ZYM TOKEN ════ -->
+<section class="token" id="token">
+  <div class="container">
+    <div class="token-inner">
+      <div>
+        <span class="section-label">ZYM Token</span>
+        <h2 class="section-title">The currency of the <span class="gold-grad">Zyntex ecosystem</span></h2>
+        <p class="section-sub">ZYM is the native utility token of the Zyntex platform. Used for rewards, governance, and real-world value exchange.</p>
+        <div class="token-info-grid">
+          <div class="token-info-item">
+            <p>Token Name</p>
+            <strong>ZYM</strong>
+          </div>
+          <div class="token-info-item">
+            <p>Total Supply</p>
+            <strong>1 Billion</strong>
+          </div>
+          <div class="token-info-item">
+            <p>Mining Reward</p>
+            <strong>0.42/hr</strong>
+          </div>
+          <div class="token-info-item">
+            <p>Network</p>
+            <strong>Blockchain</strong>
+          </div>
+        </div>
+      </div>
+      <div class="token-visual">
+        <div class="token-ring">
+          <div class="token-ring-outer"></div>
+          <div class="token-ring-inner"></div>
+          <span class="token-orbit-dot"></span>
+          <span class="token-orbit-dot"></span>
+          <span class="token-orbit-dot"></span>
+          <span class="token-orbit-dot"></span>
+          <div class="token-coin-big">Z</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ TESTIMONIALS ══ -->
+<section class="testimonials" id="community">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Community</span>
+      <h2 class="section-title">Why <span class="gold-grad">Early Miners Win</span></h2>
+      <p class="section-sub">Join now during our early access launch and lock in the highest mining rates before the network grows.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="value-icon" style="font-size:32px;margin-bottom:12px;">⚡</div>
+        <p class="testimonial-text">"Early miners always get the best rates. As the network grows and more people join, mining rates adjust — early adopters lock in a permanent advantage."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Z</div>
+          <div><div class="author-name">Zyntex Team</div><div class="author-country">Platform Economics</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="value-icon" style="font-size:32px;margin-bottom:12px;">👥</div>
+        <p class="testimonial-text">"Every person you refer to Zyntex permanently boosts your mining rate. The sooner you build your team, the more ZYM you earn — every single day, forever."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Z</div>
+          <div><div class="author-name">Zyntex Team</div><div class="author-country">Referral System</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="value-icon" style="font-size:32px;margin-bottom:12px;">🏆</div>
+        <p class="testimonial-text">"Be part of the founding community. Early miners hold the most ZYM when exchange listings happen. The best time to start was yesterday — the second best time is now."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Z</div>
+          <div><div class="author-name">Zyntex Team</div><div class="author-country">Token Launch</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ DOWNLOAD ══════ -->
+<section class="download" id="download">
+  <div class="container">
+    <div class="download-inner">
+      <div class="download-box">
+        <span class="section-label">Download Now</span>
+        <h2 class="section-title" style="font-size:clamp(28px,4vw,48px)">
+          Start earning <span class="gold-grad">ZYM today</span>
+        </h2>
+        <p class="section-sub" style="margin:0 auto">
+          Download the Zyntex app for free. Available on iOS and Android. No hardware needed — just your phone and 30 seconds a day.
+        </p>
+        <div class="download-stores">
+          <a href="#" class="store-card">
+            <div class="store-card-icon">🍎</div>
+            <div class="store-card-text">
+              <p>Download on the</p>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="#" class="store-card">
+            <div class="store-card-icon">▶</div>
+            <div class="store-card-text">
+              <p>Get it on</p>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+          <a href="#" class="store-card">
+            <div class="store-card-icon">🌐</div>
+            <div class="store-card-text">
+              <p>Open in</p>
+              <strong>Web Browser</strong>
+            </div>
+          </a>
+        </div>
+        <p class="download-note">Free forever · No credit card · Instant access</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ FAQ ═════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Frequently asked <span class="gold-grad">questions</span></h2>
+      <p class="section-sub">Everything you need to know about Zyntex and ZYM mining.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is Zyntex and how does it work?
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a">
+          Zyntex is a mobile crypto mining platform where you earn ZYM tokens by activating daily mining sessions. Once activated, Zyntex handles all computation in the cloud — no battery drain, no special hardware required. Just tap once a day to keep mining.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is Zyntex free to use?
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a">
+          Yes. The Zyntex app is completely free to download and use. There are no subscription fees or hidden charges. You earn ZYM simply by using the app every day.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How do I earn more ZYM faster?
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a">
+          There are several ways to boost your earnings: complete daily tasks for bonus ZYM, maintain your login streak for multipliers, invite friends to join your mining team (each referral boosts your rate permanently), and follow social channels for bonus rewards.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          When can I withdraw my ZYM?
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a">
+          Withdrawals are available once your account is fully KYC-verified and you have reached the minimum withdrawal threshold. The process is straightforward — go to Wallet → Withdraw and follow the steps.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is my ZYM balance safe?
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a">
+          Absolutely. Zyntex uses industry-standard Firebase infrastructure for secure data storage. All accounts are protected by email OTP verification, and KYC verification adds an additional layer of identity protection.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What countries is Zyntex available in?
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a">
+          Zyntex is available in 120+ countries worldwide. Download the app from the App Store or Google Play — if you can download it, you can mine it.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ FOOTER ════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-logo">ZYN<span>TEX</span></div>
+        <p class="footer-desc">The next-generation mobile crypto mining platform. Mine ZYM tokens, earn daily rewards, and build wealth from your phone.</p>
+        <div class="social-links">
+          <a class="social-link" href="#" title="Telegram">✈</a>
+          <a class="social-link" href="#" title="Twitter/X">✕</a>
+          <a class="social-link" href="#" title="Instagram">📷</a>
+          <a class="social-link" href="#" title="Facebook">f</a>
+          <a class="social-link" href="#" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#token">ZYM Token</a></li>
+          <li><a href="#download">Download App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+          <li><a href="kyc.html">KYC Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Zyntex Mining Platform. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@zyntexnetwork.com">support@zyntexnetwork.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════ SCRIPTS ══ -->
+<script>
+  // ── Mobile menu toggle ──────────────────────────────────────────────────
+  function toggleMenu() {
+    var menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  // ── FAQ accordion ───────────────────────────────────────────────────────
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(function(i) {
+      if (i !== item) i.classList.remove('open');
+    });
+    item.classList.toggle('open');
+  }
+
+  // ── Animated counter ────────────────────────────────────────────────────
+  function animateCounter(el, target, isDecimal) {
+    var start = 0;
+    var duration = 2000;
+    var step = 16;
+    var increments = Math.ceil(duration / step);
+    var increment = target / increments;
+    var current = 0;
+    var timer = setInterval(function() {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      if (isDecimal) {
+        el.textContent = current.toFixed(1);
+      } else if (target >= 1000000) {
+        el.textContent = (current / 1000000).toFixed(1) + 'M';
+      } else if (target >= 1000) {
+        el.textContent = (current / 1000).toFixed(0) + 'K+';
+      } else {
+        el.textContent = Math.floor(current) + '+';
+      }
+    }, step);
+  }
+
+  // ── Intersection observer for stats ────────────────────────────────────
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var nums = entry.target.querySelectorAll('[data-target]');
+        nums.forEach(function(el) {
+          var target = parseFloat(el.getAttribute('data-target'));
+          animateCounter(el, target, target % 1 !== 0);
+        });
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  var statsBar = document.querySelector('.stats-bar');
+  if (statsBar) statsObserver.observe(statsBar);
+
+  // ── Fade-up on scroll ───────────────────────────────────────────────────
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.feature-card, .step, .testimonial-card, .faq-item, .token-info-item').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    fadeObserver.observe(el);
+  });
+
+  // ── Navbar scroll effect ────────────────────────────────────────────────
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 40) {
+      navbar.style.borderBottomColor = 'rgba(212,175,55,0.1)';
+    } else {
+      navbar.style.borderBottomColor = 'rgba(255,255,255,0.04)';
+    }
+  });
+
+  // ── Smooth scroll for anchor links ──────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var offset = 80;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

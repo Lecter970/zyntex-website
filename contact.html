@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact Us — Zyntex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0B0B0D;--bg2:#141417;--bg3:#1A1A1E;--gold:#D4AF37;--gold-light:#F2D27D;--gold-dim:rgba(212,175,55,0.12);--text:#FFFFFF;--muted:#B3B3B3;--dim:#7A7A7A;--border:#1E1E22;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;}
+    a{color:var(--gold);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .navbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+    .nav-logo{font-size:20px;font-weight:900;letter-spacing:3px;color:var(--gold);}
+    .nav-logo span{color:var(--gold-light);}
+    .nav-back{font-size:14px;color:var(--muted);}
+    .nav-back:hover{color:var(--text);}
+    .content{max-width:880px;margin:0 auto;padding:60px 24px 100px;}
+    .content h1{font-size:36px;font-weight:800;margin-bottom:8px;}
+    .subtitle{font-size:16px;color:var(--muted);margin-bottom:48px;}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+    @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+    .contact-cards{display:flex;flex-direction:column;gap:16px;}
+    .contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;align-items:flex-start;gap:16px;}
+    .contact-card-icon{width:44px;height:44px;border-radius:10px;background:var(--gold-dim);border:1px solid rgba(212,175,55,0.3);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .contact-card h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+    .contact-card p{font-size:13px;color:var(--dim);margin-bottom:6px;}
+    .contact-card a{font-size:14px;color:var(--gold);font-weight:500;}
+    .form-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:32px;}
+    .form-card h2{font-size:20px;font-weight:700;margin-bottom:24px;}
+    .form-group{margin-bottom:18px;}
+    .form-group label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;letter-spacing:0.5px;}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text);font-family:inherit;outline:none;transition:border-color 0.2s;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+    .form-group textarea{resize:vertical;min-height:120px;}
+    .form-group select option{background:var(--bg3);}
+    .submit-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--bg);font-size:15px;font-weight:700;padding:14px;border:none;border-radius:10px;cursor:pointer;transition:opacity 0.2s;}
+    .submit-btn:hover{opacity:0.9;}
+    .success-msg{display:none;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:10px;padding:16px;text-align:center;font-size:14px;color:var(--gold);margin-top:16px;}
+    .divider{height:1px;background:var(--border);margin:48px 0;}
+    .faq-hint{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;}
+    .faq-hint p{font-size:14px;color:var(--muted);margin-bottom:12px;}
+    .faq-hint a{display:inline-block;background:var(--gold-dim);border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-size:13px;font-weight:600;padding:8px 20px;border-radius:8px;}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo" style="text-decoration:none;">ZYN<span>TEX</span></a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+<div class="content">
+  <h1>Contact Us</h1>
+  <p class="subtitle">We're here to help. Reach out through any of the channels below.</p>
+
+  <div class="grid">
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon">📧</div>
+        <div>
+          <h3>General Support</h3>
+          <p>For account, mining, and app questions</p>
+          <a href="mailto:support@zyntexnetwork.com">support@zyntexnetwork.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">⚖️</div>
+        <div>
+          <h3>Legal & Compliance</h3>
+          <p>Terms, privacy, and legal inquiries</p>
+          <a href="mailto:legal@zyntexnetwork.com">legal@zyntexnetwork.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🔒</div>
+        <div>
+          <h3>Privacy</h3>
+          <p>Data rights, GDPR, deletion requests</p>
+          <a href="mailto:privacy@zyntexnetwork.com">privacy@zyntexnetwork.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🤝</div>
+        <div>
+          <h3>Partnerships</h3>
+          <p>Business development and partnerships</p>
+          <a href="mailto:partners@zyntexnetwork.com">partners@zyntexnetwork.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🐞</div>
+        <div>
+          <h3>Bug Reports</h3>
+          <p>Security issues and vulnerability reports</p>
+          <a href="mailto:security@zyntexnetwork.com">security@zyntexnetwork.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2>Send a Message</h2>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option value="">Select a topic...</option>
+            <option>Account / Login Issue</option>
+            <option>Mining Problem</option>
+            <option>Withdrawal / Wallet</option>
+            <option>KYC Verification</option>
+            <option>Referral / Rewards</option>
+            <option>Bug Report</option>
+            <option>Partnership Inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Describe your issue or question in detail..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="success-msg" id="successMsg">✓ Message sent! We'll reply within 24 hours.</div>
+      </form>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="faq-hint">
+    <p>Looking for quick answers? Check out our FAQ section on the home page — most common questions are answered there.</p>
+    <a href="index.html#faq">Browse FAQ →</a>
+  </div>
+</div>
+
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').reset();
+  var msg = document.getElementById('successMsg');
+  msg.style.display = 'block';
+  setTimeout(function(){ msg.style.display = 'none'; }, 5000);
+}
+</script>
+</body>
+</html>

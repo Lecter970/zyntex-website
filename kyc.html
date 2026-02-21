@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>KYC Policy — Zyntex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0B0B0D;--bg2:#141417;--gold:#D4AF37;--gold-light:#F2D27D;--text:#FFFFFF;--muted:#B3B3B3;--dim:#7A7A7A;--border:#1E1E22;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;}
+    a{color:var(--gold);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .navbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+    .nav-logo{font-size:20px;font-weight:900;letter-spacing:3px;color:var(--gold);}
+    .nav-logo span{color:var(--gold-light);}
+    .nav-back{font-size:14px;color:var(--muted);}
+    .nav-back:hover{color:var(--text);}
+    .content{max-width:760px;margin:0 auto;padding:60px 24px 100px;}
+    .content h1{font-size:36px;font-weight:800;margin-bottom:8px;}
+    .last-updated{font-size:13px;color:var(--dim);margin-bottom:48px;}
+    .content h2{font-size:20px;font-weight:700;color:var(--gold);margin:40px 0 12px;}
+    .content p{font-size:15px;color:var(--muted);margin-bottom:14px;}
+    .content ul{margin:0 0 16px 20px;}
+    .content li{font-size:15px;color:var(--muted);margin-bottom:6px;}
+    .steps{counter-reset:step;display:flex;flex-direction:column;gap:16px;margin:16px 0 24px;}
+    .step{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 20px 20px 60px;position:relative;}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--bg);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+    .step h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+    .step p{font-size:13px;color:var(--muted);margin:0;}
+    .info-box{background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.25);border-radius:12px;padding:20px 24px;margin:16px 0;}
+    .info-box p{margin:0;font-size:14px;color:var(--muted);}
+    .info-box p strong{color:var(--gold);}
+    .divider{height:1px;background:var(--border);margin:32px 0;}
+    .contact-box{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;margin-top:40px;}
+    .contact-box p{margin:0;font-size:14px;color:var(--muted);}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo" style="text-decoration:none;">ZYN<span>TEX</span></a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+<div class="content">
+  <h1>KYC Policy</h1>
+  <p class="last-updated">Last updated: February 21, 2026</p>
+
+  <p>Zyntex is committed to operating a compliant, secure, and trustworthy platform. As part of this commitment, we require identity verification (Know Your Customer, or "KYC") for users who wish to withdraw ZYM tokens or access certain platform features. This policy explains our KYC requirements and procedures.</p>
+
+  <h2>1. Why KYC is Required</h2>
+  <p>KYC verification is a standard practice in financial and crypto platforms. At Zyntex, we require KYC to:</p>
+  <ul>
+    <li>Comply with applicable Anti-Money Laundering (AML) and counter-terrorism financing (CTF) regulations.</li>
+    <li>Protect our users from fraud, identity theft, and account takeovers.</li>
+    <li>Prevent the use of multiple accounts by a single individual (account farming).</li>
+    <li>Ensure that ZYM tokens are distributed to real, verified individuals.</li>
+    <li>Meet the requirements of partner exchanges and financial service providers.</li>
+  </ul>
+
+  <h2>2. When KYC is Required</h2>
+  <p>KYC verification is mandatory for:</p>
+  <ul>
+    <li>Withdrawing ZYM tokens to an external wallet.</li>
+    <li>Converting ZYM tokens within the platform.</li>
+    <li>Accessing premium earning features or higher withdrawal limits.</li>
+    <li>Any activity that triggers regulatory thresholds.</li>
+  </ul>
+  <p>Basic mining and earning activities do not require KYC. However, you will need to complete verification before you can withdraw your balance.</p>
+
+  <h2>3. What Documents Are Required</h2>
+  <p>To complete KYC, you will need to provide:</p>
+  <ul>
+    <li><strong>Government-issued photo ID:</strong> Passport, national ID card, or driver's licence. The document must be valid (not expired) and clearly readable.</li>
+    <li><strong>Selfie / Liveness check:</strong> A photo of yourself holding your ID, or a real-time selfie as prompted by the verification system.</li>
+    <li><strong>Proof of address</strong> (if requested): A utility bill, bank statement, or official document showing your name and residential address, dated within 3 months.</li>
+  </ul>
+
+  <div class="info-box">
+    <p><strong>Important:</strong> All documents must be genuine, unaltered originals. Submitting forged or manipulated documents is a criminal offence and will result in permanent account termination and potential reporting to authorities.</p>
+  </div>
+
+  <h2>4. The Verification Process</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Submit your documents</h3>
+      <p>Upload clear photos of your government-issued ID and selfie directly through the Zyntex app in the KYC section of your profile.</p>
+    </div>
+    <div class="step">
+      <h3>Automated review</h3>
+      <p>Our system performs an initial automated check for document validity, expiry, and image quality within minutes.</p>
+    </div>
+    <div class="step">
+      <h3>Manual review (if required)</h3>
+      <p>Some submissions are referred to our compliance team for manual review. This typically takes 1–3 business days.</p>
+    </div>
+    <div class="step">
+      <h3>Verification confirmed</h3>
+      <p>You receive an in-app notification and email confirming your KYC status. Withdrawal functionality is unlocked immediately.</p>
+    </div>
+  </div>
+
+  <h2>5. Data Handling and Privacy</h2>
+  <p>Your KYC documents are handled with the highest level of security and confidentiality:</p>
+  <ul>
+    <li>Documents are encrypted in transit and at rest using industry-standard encryption.</li>
+    <li>Access to KYC data is strictly limited to authorized compliance personnel on a need-to-know basis.</li>
+    <li>We do not sell or share your identity documents with third parties except as required by law.</li>
+    <li>We retain KYC records for the period required by applicable regulations (typically 5 years after account closure).</li>
+  </ul>
+  <p>For full details on how we handle your personal data, please see our <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h2>6. Rejected or Failed Verification</h2>
+  <p>Verification may be rejected if:</p>
+  <ul>
+    <li>Documents are expired, illegible, or appear tampered with.</li>
+    <li>The selfie does not clearly match the ID photo.</li>
+    <li>The provided information does not match our records.</li>
+    <li>The applicant is from a restricted jurisdiction.</li>
+  </ul>
+  <p>If your verification is rejected, you will receive guidance on how to resubmit. If you believe there has been an error, contact us at <a href="mailto:kyc@zyntexnetwork.com">kyc@zyntexnetwork.com</a>.</p>
+
+  <h2>7. Restricted Jurisdictions</h2>
+  <p>Zyntex is not available to users in jurisdictions subject to comprehensive international sanctions or where crypto asset activities are prohibited by law. Users found to be located in or citizens of such jurisdictions will have their accounts suspended.</p>
+
+  <h2>8. Ongoing Monitoring</h2>
+  <p>KYC verification is not a one-time check. We reserve the right to request updated documentation at any time, particularly if your account shows unusual activity, or if regulatory requirements change. Failure to provide updated documents when requested may result in temporary withdrawal restrictions.</p>
+
+  <div class="divider"></div>
+
+  <div class="contact-box">
+    <p><strong style="color:#fff">KYC Questions?</strong><br>
+    Contact our compliance team at <a href="mailto:kyc@zyntexnetwork.com">kyc@zyntexnetwork.com</a> or general support at <a href="mailto:support@zyntexnetwork.com">support@zyntexnetwork.com</a>.</p>
+  </div>
+</div>
+</body>
+</html>
